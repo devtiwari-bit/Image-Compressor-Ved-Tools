@@ -1,1 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VEDGAMES — Ved Games Production</title>
+
+    <meta name="description"
+        content="Ved Games Production — creating modern, original and engaging gaming experiences.">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: #050000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --red: #e50914;
+            --bright-red: #ff1b25;
+            --dark-red: #7d0006;
+            --black: #050000;
+            --panel: #0d0202;
+            --panel-light: #150303;
+            --white: #ffffff;
+            --muted: #a99898;
+            --border: rgba(255, 40, 40, 0.18);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 72px;
+
+            z-index: 1000;
+
+            background: rgba(5, 0, 0, 0.82);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1180px;
+            height: 72px;
+
+            margin: auto;
+            padding: 0 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Logo */
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            font-weight: 900;
+            letter-spacing: 1.5px;
+
+            font-size: 15px;
+        }
+
+        .brand span {
+            color: #777;
+            font-weight: 500;
+        }
+
+        .brand-mark {
+            width: 35px;
+            height: 35px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 9px;
+
+            border: 1px solid rgba(255, 30, 30, 0.6);
+
+            background: #120000;
+
+            color: white;
+            font-weight: 900;
+        }
+
+        .brand-mark::before {
+            content: "V";
+        }
+
+        /* Navigation links */
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #b6aaaa;
+            font-size: 13px;
+
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        /* Mobile menu */
+
+        .menu-button {
+            display: none;
+
+            background: transparent;
+            border: none;
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background: #050000;
+        }
+
+        /*
+        Your uploaded logo/background image
+        */
+
+        .hero-background {
+            position: absolute;
+            inset: 0;
+
+            background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.97) 0%,
+                    rgba(0, 0, 0, 0.78) 38%,
+                    rgba(80, 0, 0, 0.25) 100%
+                ),
+                url("assets/vedgames-logo.jpeg");
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            filter: saturate(1.25);
+
+            transform: scale(1.04);
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 75% 40%,
+                    rgba(220, 0, 0, 0.25),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    rgba(0, 0, 0, 0.1),
+                    #050000 100%
+                );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 1180px;
+
+            width: 100%;
+
+            margin: auto;
+
+            padding: 140px 24px 90px;
+        }
+
+        /* Small label */
+
+        .eyebrow {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 7px 13px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(20, 0, 0, 0.55);
+
+            border-radius: 100px;
+
+            color: #d8caca;
+
+            font-size: 11px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.7px;
+
+            margin-bottom: 25px;
+        }
+
+        .red-dot {
+            width: 6px;
+            height: 6px;
+
+            background: var(--red);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 14px var(--red);
+        }
+
+        /* Hero title */
+
+        .hero h1 {
+            font-size: clamp(52px, 8vw, 100px);
+
+            line-height: 0.88;
+
+            letter-spacing: -5px;
+
+            max-width: 850px;
+        }
+
+        .hero h1 .red {
+            color: var(--red);
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            color: #b9aaaa;
+
+            margin: 30px 0;
+
+            font-size: 16px;
+        }
+
+        /* Hero buttons */
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 11px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 13px 20px;
+
+            border-radius: 8px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            transition: 0.25s;
+        }
+
+        .button-primary {
+            background: var(--red);
+
+            box-shadow:
+                0 0 30px rgba(229, 9, 20, 0.18);
+        }
+
+        .button-primary:hover {
+            background: var(--bright-red);
+
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .button-secondary:hover {
+            border-color: rgba(255, 50, 50, 0.5);
+
+            background: rgba(100, 0, 0, 0.25);
+        }
+
+
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
+        section {
+            padding: 105px 24px;
+        }
+
+        .container {
+            max-width: 1180px;
+
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--red);
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2.4px;
+
+            margin-bottom: 12px;
+
+            font-weight: 800;
+        }
+
+        .section-title {
+            font-size: clamp(35px, 5vw, 58px);
+
+            letter-spacing: -2.5px;
+
+            line-height: 1;
+
+            margin-bottom: 18px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+
+            max-width: 650px;
+
+            margin-bottom: 42px;
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background:
+                linear-gradient(
+                    180deg,
+                    #050000,
+                    #090101
+                );
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.15fr
+                0.85fr;
+
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .about-text {
+            color: #a99898;
+
+            font-size: 15px;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        /* About card */
+
+        .about-card {
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #130303,
+                    #090101
+                );
+
+            border-radius: 18px;
+
+            padding: 30px;
+
+            box-shadow:
+                inset 0 1px rgba(255, 255, 255, 0.03);
+        }
+
+        .about-card h3 {
+            font-size: 28px;
+
+            margin-bottom: 8px;
+        }
+
+        .about-card > p {
+            color: #8f8181;
+
+            font-size: 13px;
+        }
+
+        /* Stats */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 9px;
+
+            margin-top: 22px;
+        }
+
+        .stat {
+            background: #100202;
+
+            border: 1px solid rgba(255, 255, 255, 0.06);
+
+            padding: 17px;
+
+            border-radius: 11px;
+        }
+
+        .stat strong {
+            display: block;
+
+            font-size: 22px;
+
+            color: white;
+        }
+
+        .stat small {
+            color: #756868;
+        }
+
+
+        /* =========================
+           GAMES
+        ========================= */
+
+        .games {
+            background: #070000;
+        }
+
+        .games-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .game-card {
+            background: #0d0202;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(229, 9, 20, 0.5);
+
+            box-shadow:
+                0 18px 50px
+                rgba(80, 0, 0, 0.22);
+        }
+
+        /* Game image */
+
+        .game-cover {
+            height: 210px;
+
+            position: relative;
+
+            display: flex;
+
+            align-items: flex-end;
+
+            padding: 20px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #220000,
+                    #070000
+                );
+        }
+
+        .game-cover::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 75% 25%,
+                    rgba(255, 0, 0, 0.5),
+                    transparent 28%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    transparent 45%,
+                    rgba(255, 0, 0, 0.08)
+                );
+        }
+
+        .game-number {
+            position: relative;
+
+            font-size: 65px;
+
+            font-weight: 950;
+
+            color: rgba(255, 255, 255, 0.08);
+        }
+
+        .game-content {
+            padding: 21px;
+        }
+
+        .game-content h3 {
+            font-size: 20px;
+
+            margin-bottom: 6px;
+        }
+
+        .game-content p {
+            font-size: 13px;
+
+            color: #897979;
+
+            margin-bottom: 18px;
+        }
+
+        .game-link {
+            font-size: 12px;
+
+            font-weight: 800;
+
+            color: white;
+
+            border-bottom:
+                1px solid #5d2222;
+
+            padding-bottom: 3px;
+
+            transition: 0.2s;
+        }
+
+        .game-link:hover {
+            color: var(--red);
+
+            border-color: var(--red);
+        }
+
+
+        /* =========================
+           OWNER
+        ========================= */
+
+        .owner {
+            background:
+                linear-gradient(
+                    180deg,
+                    #090101,
+                    #050000
+                );
+        }
+
+        .owner-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.7fr
+                1.3fr;
+
+            gap: 65px;
+
+            align-items: center;
+        }
+
+        .owner-image {
+            height: 320px;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            position: relative;
+
+            background: #050000;
+        }
+
+        .owner-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0.52;
+
+            filter: saturate(1.4);
+        }
+
+        .owner-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 0, 0, 0.45),
+                    rgba(80, 0, 0, 0.25)
+                );
+        }
+
+        .owner-info h3 {
+            font-size: 42px;
+
+            letter-spacing: -1.5px;
+        }
+
+        .owner-role {
+            color: var(--red);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            margin:
+                4px 0 22px;
+        }
+
+        .owner-info p {
+            color: #9b8d8d;
+
+            max-width: 620px;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+
+            background: #060000;
+        }
+
+        .contact-box {
+            max-width: 760px;
+
+            margin: auto;
+
+            padding: 58px 25px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 20px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0,
+                    rgba(170, 0, 0, 0.16),
+                    transparent 45%
+                ),
+                #0b0101;
+        }
+
+        .contact-box p {
+            color: #928282;
+
+            margin:
+                0 auto 28px;
+
+            max-width: 550px;
+        }
+
+        .social-links {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            padding: 10px 16px;
+
+            border-radius: 8px;
+
+            color: #b7a8a8;
+
+            font-size: 12px;
+
+            transition: 0.2s;
+        }
+
+        .social-link:hover {
+            border-color:
+                rgba(229, 9, 20, 0.5);
+
+            color: white;
+
+            background: #160202;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top:
+                1px solid var(--border);
+
+            padding: 25px 24px;
+
+            color: #665858;
+
+            font-size: 11px;
+        }
+
+        .footer-container {
+            max-width: 1180px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                position: absolute;
+
+                display: none;
+
+                left: 0;
+                top: 72px;
+
+                width: 100%;
+
+                padding: 22px 24px;
+
+                flex-direction: column;
+
+                gap: 18px;
+
+                background:
+                    rgba(5, 0, 0, 0.97);
+
+                border-bottom:
+                    1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 32px;
+            }
+
+            .owner-grid {
+                grid-template-columns: 1fr;
+
+                gap: 32px;
+            }
+
+            .games-grid {
+                grid-template-columns:
+                    1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 560px) {
+
+            section {
+                padding:
+                    78px 20px;
+            }
+
+            .hero-content {
+                padding:
+                    125px 20px 75px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-cover {
+                height: 190px;
+            }
+
+            .owner-image {
+                height: 250px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+
+                gap: 7px;
+
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-container">
+
+            <a
+                href="#home"
+                class="brand"
+            >
+
+                <div class="brand-mark"></div>
+
+                VEDGAMES
+
+                <span>
+                    PRODUCTION
+                </span>
+
+            </a>
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open navigation"
+            >
+                ☰
+            </button>
+
+
+            <ul
+                class="nav-links"
+                id="navLinks"
+            >
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#games">
+                        Games
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#owner">
+                        Owner
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main>
+
+
+        <!-- =========================
+             HERO
+        ========================== -->
+
+        <section
+            class="hero"
+            id="home"
+        >
+
+            <div
+                class="hero-background"
+            ></div>
+
+
+            <div
+                class="hero-content"
+            >
+
+                <div class="eyebrow">
+
+                    <span
+                        class="red-dot"
+                    ></span>
+
+                    Independent Game Studio
+
+                </div>
+
+
+                <h1>
+
+                    CREATE.
+
+                    <br>
+
+                    <span class="red">
+                        PLAY.
+                    </span>
+
+                    <br>
+
+                    REMEMBER.
+
+                </h1>
+
+
+                <p class="hero-description">
+
+                    Ved Games Production is an
+                    independent game studio creating
+                    modern, original and engaging
+                    gaming experiences.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#games"
+                        class="button button-primary"
+                    >
+                        EXPLORE GAMES →
+                    </a>
+
+
+                    <a
+                        href="#about"
+                        class="button button-secondary"
+                    >
+                        OUR STUDIO
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section
+            class="about"
+            id="about"
+        >
+
+            <div class="container">
+
+                <div class="about-grid">
+
+
+                    <div>
+
+                        <div
+                            class="section-label"
+                        >
+                            About the studio
+                        </div>
+
+
+                        <h2
+                            class="section-title"
+                        >
+
+                            Built from ideas.
+
+                            <br>
+
+                            Made for players.
+
+                        </h2>
+
+
+                        <div
+                            class="about-text"
+                        >
+
+                            <p>
+                                Ved Games Production
+                                is an independent game
+                                studio focused on
+                                creativity,
+                                experimentation and
+                                memorable gameplay.
+                            </p>
+
+
+                            <p>
+                                We turn concepts into
+                                playable experiences,
+                                combining modern
+                                presentation with
+                                gameplay designed
+                                to be fun and engaging.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="about-card">
+
+                        <h3>
+                            Our Focus
+                        </h3>
+
+
+                        <p>
+                            Original games, modern
+                            design and experiences
+                            players want to come back to.
+                        </p>
+
+
+                        <div class="stats">
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    01
+                                </strong>
+
+                                <small>
+                                    Independent Studio
+                                </small>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    ∞
+                                </strong>
+
+                                <small>
+                                    Ideas
+                                </small>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    2026
+                                </strong>
+
+                                <small>
+                                    Studio Era
+                                </small>
+
+                            </div>
+
+
+                            <div class="stat">
+
+                                <strong>
+                                    100%
+                                </strong>
+
+                                <small>
+                                    Passion
+                                </small>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             GAMES
+        ========================== -->
+
+        <section
+            class="games"
+            id="games"
+        >
+
+            <div class="container">
+
+
+                <div
+                    class="section-label"
+                >
+                    Our games
+                </div>
+
+
+                <h2
+                    class="section-title"
+                >
+                    Games in the works.
+                </h2>
+
+
+                <p
+                    class="section-subtitle"
+                >
+
+                    These are placeholder projects.
+                    Replace their names,
+                    descriptions and links
+                    with your real games.
+
+                </p>
+
+
+
+                <div class="games-grid">
+
+
+                    <!-- GAME 1 -->
+
+                    <article
+                        class="game-card"
+                    >
+
+                        <div
+                            class="game-cover"
+                        >
+
+                            <div
+                                class="game-number"
+                            >
+                                01
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="game-content"
+                        >
+
+                            <h3>
+                                Project Horizon
+                            </h3>
+
+
+                            <p>
+
+                                A modern exploration
+                                game built around
+                                discovery, atmosphere
+                                and adventure.
+
+                            </p>
+
+
+                            <!--
+                            CHANGE THIS LINK
+                            -->
+
+                            <a
+                                href="https://example.com"
+                                target="_blank"
+                                class="game-link"
+                            >
+
+                                VIEW GAME →
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- GAME 2 -->
+
+                    <article
+                        class="game-card"
+                    >
+
+                        <div
+                            class="game-cover"
+                        >
+
+                            <div
+                                class="game-number"
+                            >
+                                02
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="game-content"
+                        >
+
+                            <h3>
+                                Neon Drift
+                            </h3>
+
+
+                            <p>
+
+                                A fast-paced
+                                futuristic experience
+                                focused on speed
+                                and precision.
+
+                            </p>
+
+
+                            <!--
+                            CHANGE THIS LINK
+                            -->
+
+                            <a
+                                href="https://example.com"
+                                target="_blank"
+                                class="game-link"
+                            >
+
+                                VIEW GAME →
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+
+                    <!-- GAME 3 -->
+
+                    <article
+                        class="game-card"
+                    >
+
+                        <div
+                            class="game-cover"
+                        >
+
+                            <div
+                                class="game-number"
+                            >
+                                03
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="game-content"
+                        >
+
+                            <h3>
+                                Untitled Project
+                            </h3>
+
+
+                            <p>
+
+                                Our upcoming project.
+                                More information
+                                will be revealed soon.
+
+                            </p>
+
+
+                            <!--
+                            CHANGE THIS LINK
+                            -->
+
+                            <a
+                                href="https://example.com"
+                                target="_blank"
+                                class="game-link"
+                            >
+
+                                COMING SOON →
+
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             OWNER
+        ========================== -->
+
+        <section
+            class="owner"
+            id="owner"
+        >
+
+            <div class="container">
+
+                <div
+                    class="owner-grid"
+                >
+
+
+                    <div
+                        class="owner-image"
+                    >
+
+                        <!--
+                        YOUR LOGO IMAGE
+                        -->
+
+                        <img
+                            src="assets/vedgames-logo.jpeg"
+                            alt="Ved Games Production Logo"
+                        >
+
+                    </div>
+
+
+
+                    <div
+                        class="owner-info"
+                    >
+
+                        <div
+                            class="section-label"
+                        >
+                            Founder & Owner
+                        </div>
+
+
+                        <h3>
+                            Ved Tiwari
+                        </h3>
+
+
+                        <div
+                            class="owner-role"
+                        >
+                            FOUNDER — VED GAMES PRODUCTION
+                        </div>
+
+
+                        <p>
+
+                            Ved Tiwari is the founder
+                            of Ved Games Production,
+                            with a focus on gaming,
+                            creativity and building
+                            original digital experiences.
+
+                        </p>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section
+            class="contact"
+            id="contact"
+        >
+
+            <div class="container">
+
+
+                <div
+                    class="contact-box"
+                >
+
+
+                    <div
+                        class="section-label"
+                    >
+                        Get in touch
+                    </div>
+
+
+                    <h2
+                        class="section-title"
+                    >
+                        Let's build something.
+                    </h2>
+
+
+                    <p>
+
+                        Follow Ved Games Production
+                        or explore our latest projects.
+
+                    </p>
+
+
+                    <div
+                        class="social-links"
+                    >
+
+
+                        <!--
+                        REPLACE THESE LINKS
+                        WITH YOUR REAL ACCOUNTS
+                        -->
+
+
+                        <a
+                            href="https://instagram.com/"
+                            target="_blank"
+                            class="social-link"
+                        >
+                            Instagram
+                        </a>
+
+
+                        <a
+                            href="https://youtube.com/"
+                            target="_blank"
+                            class="social-link"
+                        >
+                            YouTube
+                        </a>
+
+
+                        <a
+                            href="https://discord.com/"
+                            target="_blank"
+                            class="social-link"
+                        >
+                            Discord
+                        </a>
+
+
+                        <a
+                            href="mailto:hello@vedgames.com"
+                            class="social-link"
+                        >
+                            Email
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div
+            class="footer-container"
+        >
+
+            <span>
+                © 2026 Ved Games Production
+            </span>
+
+
+            <span>
+                All rights reserved.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const menuButton =
+            document.getElementById(
+                "menuButton"
+            );
+
+        const navLinks =
+            document.getElementById(
+                "navLinks"
+            );
+
+
+        /* Mobile menu */
+
+        menuButton.addEventListener(
+            "click",
+            function () {
+
+                navLinks.classList.toggle(
+                    "active"
+                );
+
+            }
+        );
+
+
+        /* Close menu after clicking */
+
+        document
+            .querySelectorAll(
+                ".nav-links a"
+            )
+            .forEach(
+                function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navLinks.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    </script>
+
+
+</body>
+
+</html>
